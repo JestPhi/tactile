@@ -16,12 +16,15 @@
     "files": [
         "dist",
         "README.md",
-        "COMPONENT_TEMPLATE.md"
+        "COMPONENT_TEMPLATE.md",
+        "CSS_VARIABLES.md"
     ],
     "scripts": {
         "build": "tsup",
         "dev": "tsup --watch",
         "type-check": "tsc --noEmit",
+        "check-docs": "node check-docs.js",
+        "prebuild": "npm run check-docs",
         "prepublishOnly": "npm run build"
     },
     "keywords": [
