@@ -87,7 +87,7 @@ img {
 }
 
 .story-container {
-  height: calc(100dvh - 44px);
+  height: calc(100dvh - 48px);
   overflow-x: scroll;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;

@@ -1,6 +1,6 @@
 # Bar Component
 
-Bar is a 44px-tall horizontal flex container for navigation, toolbars, and action bars. It ensures consistent height and layout across the application.
+Bar is a 48px-tall horizontal flex container for navigation, toolbars, and action bars. It ensures consistent height and layout across the application.
 
 ## When to Use
 
@@ -143,7 +143,7 @@ Example:
 
 ## Responsive
 
-Bar remains 44px tall at all breakpoints.
+Bar remains 48px tall at all breakpoints.
 
 ### Considerations
 

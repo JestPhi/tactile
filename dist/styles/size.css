@@ -14,8 +14,8 @@
   height: var(--size-36);
 }
 
-.h-44 {
-  height: var(--size-44);
+.h-48 {
+  height: var(--size-48);
 }
 
 .h-56 {
@@ -34,16 +34,16 @@
   width: var(--size-36);
 }
 
-.w-44 {
-  width: var(--size-44);
+.w-48 {
+  width: var(--size-48);
 }
 
 .w-96 {
   width: var(--size-96);
 }
 
-.min-w-44 {
-  min-width: var(--size-44);
+.min-w-48 {
+  min-width: var(--size-48);
 }
 .max-w-full {
   max-width: 100%;

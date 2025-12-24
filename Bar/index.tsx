@@ -11,7 +11,7 @@ const Bar = ({ children, className }: BarProps) => {
   return (
     <div
       data-component="Bar"
-      className={cn("h-44", "w-full", "flex", "shrink-0", className)}
+      className={cn("h-48", "w-full", "flex", "shrink-0", className)}
     >
       {children}
     </div>

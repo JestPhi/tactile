@@ -4,7 +4,7 @@ A lightweight, touch-optimized React design system with utility-first styling. B
 
 ## Features
 
-- 🎯 **Touch-Optimized**: 44px minimum touch targets throughout
+- 🎯 **Touch-Optimized**: 48px minimum touch targets throughout
 - ♿ **Accessible**: WCAG-compliant components with ARIA support
 - 🎨 **Utility-First**: Comprehensive utility class system
 - 🌓 **Dark Mode**: Automatic dark mode support via `prefers-color-scheme`
@@ -81,7 +81,7 @@ function CustomComponent() {
 
 ### Layout
 
-- **Bar** - 44px fixed-height horizontal container
+- **Bar** - 48px fixed-height horizontal container
 - **ScrollView** - Scrollable content container
 
 ### Interactive
@@ -142,9 +142,9 @@ gap-8 /* gap: 8px */
 ### Sizing
 
 ```css
-h-44  /* height: 44px (touch target) */
+h-48  /* height: 48px (touch target) */
 w-96  /* width: 96px */
-min-h-44 /* min-height: 44px */
+min-h-48 /* min-height: 48px */
 ```
 
 ## Utility Classes

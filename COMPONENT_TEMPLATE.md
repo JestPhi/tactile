@@ -129,7 +129,7 @@ className={cn(
 
 ### 6. Touch Targets
 
-- Minimum 44px touch target for interactive elements
+- Minimum 48px touch target for interactive elements
 - Use utility classes: `min-h-44 min-w-44`
 
 ```tsx
@@ -188,7 +188,7 @@ Use CSS variables from [variables.css](tactile/styles/variables.css):
 ### Responsive Design
 
 - Mobile-first by default
-- Use 44px minimum touch targets
+- Use 48px minimum touch targets
 - Consider 100dvh for full-height layouts
 
 ## Component Patterns
@@ -299,7 +299,7 @@ See [Bar/README.md](Bar/README.md) or [FormField/README.md](Inputs/FormField/REA
 - [ ] Includes `data-component` attribute
 - [ ] Has sensible default props
 - [ ] Supports user className override
-- [ ] Meets 44px touch target minimum
+- [ ] Meets 48px touch target minimum
 - [ ] Includes accessibility attributes
 - [ ] Uses design tokens (no magic numbers)
 - [ ] Has README.md documentation

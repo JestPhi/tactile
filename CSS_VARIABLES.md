@@ -59,7 +59,7 @@ All variables are automatically available after importing `@stella/tactile/style
 --spacing-20: 20px
 --spacing-24: 24px
 --spacing-32: 32px
---spacing-44: 44px   /* Touch target size */
+--spacing-48: 48px   /* Touch target size */
 --spacing-56: 56px
 --spacing-96: 96px
 ```
@@ -95,7 +95,7 @@ All variables are automatically available after importing `@stella/tactile/style
 --size-24: 24px
 --size-32: 32px
 --size-36: 36px
---size-44: 44px   /* Touch target minimum */
+--size-48: 48px   /* Touch target minimum */
 --size-56: 56px
 --size-96: 96px
 ```
@@ -149,8 +149,8 @@ All variables are automatically available after importing `@stella/tactile/style
 }
 
 .touchTarget {
-  min-height: var(--size-44);
-  min-width: var(--size-44);
+  min-height: var(--size-48);
+  min-width: var(--size-48);
 }
 ```
 

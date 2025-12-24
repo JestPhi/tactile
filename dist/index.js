@@ -58,7 +58,7 @@ var Bar = ({ children, className }) => {
     "div",
     {
       "data-component": "Bar",
-      className: cn("h-44", "w-full", "flex", "shrink-0", className),
+      className: cn("h-48", "w-full", "flex", "shrink-0", className),
       children
     }
   );
@@ -66,7 +66,7 @@ var Bar = ({ children, className }) => {
 var Bar_default = Bar;
 
 // ScrollView/index.tsx
-var import_style = __toESM(require("./style.module-5SVMZBNT.module.css"));
+var import_style = __toESM(require("./style.module-HGJJUSZK.module.css"));
 var import_jsx_runtime2 = require("react/jsx-runtime");
 var ScrollView = ({ children }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: import_style.default.scrollView, children });
