@@ -89,6 +89,7 @@ function CustomComponent() {
 - **Button** - Touch-optimized button with variants
 - **IconButton** - Icon-only button
 - **Anchor** - Router-integrated link component
+- **Modal** - Accessible modal dialog with focus trap
 
 ### Display
 
@@ -104,6 +105,7 @@ function CustomComponent() {
 ### Utilities
 
 - **cn()** - ClassName merging utility
+- **useFocusTrap()** - Focus trap hook for accessibility
 
 ## Design Tokens
 

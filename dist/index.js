@@ -38,11 +38,11 @@ __export(index_exports, {
   IconButton: () => IconButton_default,
   InputImage: () => Image_default,
   InputText: () => Text_default,
+  Modal: () => Modal_default,
   ScrollView: () => ScrollView_default,
   Textarea: () => Textarea_default,
   cn: () => cn,
-  cssVars: () => cssVars,
-  tokens: () => tokens
+  useFocusTrap: () => useFocusTrap
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -123,7 +123,7 @@ var IconButton = ({
   disabled,
   ...rest
 }) => {
-  const styles2 = [
+  const styles3 = [
     "flex",
     "items-center",
     "justify-center",
@@ -136,12 +136,72 @@ var IconButton = ({
     disabled ? "opacity-60 cursor-not-allowed" : "",
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: styles2, disabled, ...rest, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: styles3, disabled, ...rest, children });
 };
 var IconButton_default = IconButton;
 
-// Avatar/index.tsx
+// utils/useFocusTrap.ts
+var import_react = require("react");
+function useFocusTrap(isActive) {
+  const elementRef = (0, import_react.useRef)(null);
+  (0, import_react.useEffect)(() => {
+    if (!isActive || !elementRef.current) return;
+    const element = elementRef.current;
+    const focusableElements = element.querySelectorAll(
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+    firstFocusable?.focus();
+    const handleTabKey = (e) => {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable?.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable?.focus();
+        }
+      }
+    };
+    element.addEventListener("keydown", handleTabKey);
+    return () => {
+      element.removeEventListener("keydown", handleTabKey);
+    };
+  }, [isActive]);
+  return elementRef;
+}
+
+// Modal/index.tsx
+var import_style3 = __toESM(require("./style.module-ZEOIKZEB.module.css"));
 var import_jsx_runtime6 = require("react/jsx-runtime");
+var Modal = ({
+  visible,
+  onClose,
+  children,
+  height = "100dvh"
+}) => {
+  const modalRef = useFocusTrap(visible);
+  const handleClose = () => {
+    if (typeof onClose === "function") {
+      onClose();
+    }
+  };
+  if (!visible) {
+    return null;
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: import_style3.default.modal, ref: modalRef, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: import_style3.default.backdrop, onClick: handleClose }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: import_style3.default.content, style: { height }, children })
+  ] });
+};
+var Modal_default = Modal;
+
+// Avatar/index.tsx
+var import_jsx_runtime7 = require("react/jsx-runtime");
 var SIZE_MAP = {
   SM: "h-36 w-36",
   LG: "h-96 w-96"
@@ -154,7 +214,7 @@ var Avatar = ({
   src,
   size = "SM"
 }) => {
-  return src ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+  return src ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     "img",
     {
       className: [
@@ -167,7 +227,7 @@ var Avatar = ({
       alt: "User avatar",
       "data-component": "Avatar"
     }
-  ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+  ) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     "span",
     {
       className: [
@@ -188,7 +248,7 @@ var import_color = require("./color-5CGTXAKN.css");
 var import_flex = require("./flex-FSFPHTYF.css");
 var import_font = require("./font-YEAWMAN2.css");
 var import_margin = require("./margin-X2X4JJQ4.css");
-var import_jsx_runtime7 = require("react/jsx-runtime");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 var FormField = ({
   id,
   label,
@@ -202,17 +262,17 @@ var FormField = ({
   const errorId = error ? `${inputId}-error` : void 0;
   const helperId = helperText ? `${inputId}-helper` : void 0;
   const describedBy = [errorId, helperId].filter(Boolean).join(" ");
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
     "div",
     {
       className: ["flex flex-col gap-4", className].filter(Boolean).join(" "),
       "data-component": "FormField",
       children: [
-        label && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { htmlFor: inputId, className: "font-semibold text-sm mb-6", children: [
+        label && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { htmlFor: inputId, className: "font-semibold text-sm mb-6", children: [
           label,
-          required && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "color-error ml-4", children: "*" })
+          required && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "color-error ml-4", children: "*" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "div",
           {
             className: "h-full",
@@ -221,8 +281,8 @@ var FormField = ({
             children
           }
         ),
-        error && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { id: errorId, className: "text-xs color-error mt-4", children: error }),
-        helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { id: helperId, className: "text-xs color-gray-500 mt-4", children: helperText })
+        error && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { id: errorId, className: "text-xs color-error mt-4", children: error }),
+        helperText && !error && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { id: helperId, className: "text-xs color-gray-500 mt-4", children: helperText })
       ]
     }
   );
@@ -230,10 +290,10 @@ var FormField = ({
 var FormField_default = FormField;
 
 // Inputs/Image/index.tsx
-var import_react = __toESM(require("react"));
+var import_react2 = __toESM(require("react"));
 var import_react_feather = require("react-feather");
-var import_style3 = __toESM(require("./style.module-Z4UGOQBN.module.css"));
-var import_jsx_runtime8 = require("react/jsx-runtime");
+var import_style4 = __toESM(require("./style.module-Z4UGOQBN.module.css"));
+var import_jsx_runtime9 = require("react/jsx-runtime");
 var getImage = (image) => {
   if (typeof image === "object") {
     const blob = new Blob([image], { type: "image/jpeg" });
@@ -249,30 +309,30 @@ var InputImage = ({
   removePlaceholder,
   selectPlaceholder = null
 }) => {
-  const didMount = (0, import_react.useRef)(false);
-  const [imageFileState, setImageFileState] = (0, import_react.useState)(
+  const didMount = (0, import_react2.useRef)(false);
+  const [imageFileState, setImageFileState] = (0, import_react2.useState)(
     value
   );
-  const inputRef = (0, import_react.useRef)(null);
-  (0, import_react.useEffect)(() => {
+  const inputRef = (0, import_react2.useRef)(null);
+  (0, import_react2.useEffect)(() => {
     setImageFileState(value);
   }, [value]);
-  (0, import_react.useEffect)(() => {
+  (0, import_react2.useEffect)(() => {
     if (didMount.current) {
       onChange(imageFileState);
     }
     didMount.current = true;
   }, [imageFileState, onChange]);
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: [import_style3.default.inputImage, "inputImage", className].join(" "), children: [
-    imageFileState && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: [import_style4.default.inputImage, "inputImage", className].join(" "), children: [
+    imageFileState && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
       "img",
       {
-        className: import_style3.default.img,
+        className: import_style4.default.img,
         src: getImage(imageFileState),
         alt: "Selected image"
       }
     ),
-    imageFileState && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Bar_default, { className: import_style3.default.bar, children: removePlaceholder && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    imageFileState && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Bar_default, { className: import_style4.default.bar, children: removePlaceholder && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
       Button_default,
       {
         variant: "secondary",
@@ -281,25 +341,25 @@ var InputImage = ({
         },
         children: [
           removePlaceholder,
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_react_feather.Trash2, { size: 18, className: "ml6" })
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_react_feather.Trash2, { size: 18, className: "ml6" })
         ]
       }
     ) }),
-    !imageFileState && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    !imageFileState && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
       "button",
       {
         className: "w-full h-full border-none bg-none flex justify-center items-center",
         onClick: () => inputRef.current?.click(),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_react_feather.Image, { color: "#222", height: 24, width: 24 }),
-          selectPlaceholder && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "m-8", children: selectPlaceholder })
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_react_feather.Image, { color: "#222", height: 24, width: 24 }),
+          selectPlaceholder && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "m-8", children: selectPlaceholder })
         ]
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
       "input",
       {
-        className: import_style3.default.input,
+        className: import_style4.default.input,
         id: "input",
         type: "file",
         accept: "image/*;capture=camera",
@@ -318,15 +378,15 @@ var InputImage = ({
     )
   ] });
 };
-var Image_default = import_react.default.memo(InputImage);
+var Image_default = import_react2.default.memo(InputImage);
 
 // Inputs/Text/index.tsx
 var import_nanoid2 = require("nanoid");
-var import_jsx_runtime9 = require("react/jsx-runtime");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 var InputText = ({ id, required, className, ...rest }) => {
   const inputId = id || `input-${(0, import_nanoid2.nanoid)(9)}`;
   const baseClass = "border-b box-sizing-border-box text-base h-44 outline-none mb-8 w-full pl-6";
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     "input",
     {
       id: inputId,
@@ -339,19 +399,19 @@ var InputText = ({ id, required, className, ...rest }) => {
 var Text_default = InputText;
 
 // Inputs/Textarea/index.tsx
-var import_react2 = __toESM(require("react"));
-var import_style4 = __toESM(require("./style.module-7SK7VOUQ.module.css"));
-var import_jsx_runtime10 = require("react/jsx-runtime");
-var Textarea = import_react2.default.forwardRef(
+var import_react3 = __toESM(require("react"));
+var import_style5 = __toESM(require("./style.module-7SK7VOUQ.module.css"));
+var import_jsx_runtime11 = require("react/jsx-runtime");
+var Textarea = import_react3.default.forwardRef(
   ({ className, isEditMode, ...rest }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       "textarea",
       {
         ref,
         className: [
-          import_style4.default.textarea,
+          import_style5.default.textarea,
           className,
-          `${isEditMode ? import_style4.default.editMode : void 0}`
+          `${isEditMode ? import_style5.default.editMode : void 0}`
         ].filter(Boolean).join(" "),
         ...rest
       }
@@ -360,178 +420,6 @@ var Textarea = import_react2.default.forwardRef(
 );
 Textarea.displayName = "Textarea";
 var Textarea_default = Textarea;
-
-// tokens.ts
-var tokens = {
-  colors: {
-    primary: "var(--color-primary)",
-    white: "var(--color-white)",
-    black: "var(--color-black)",
-    gray: "var(--color-gray)",
-    disabled: "var(--color-disabled)",
-    success: "var(--color-success)",
-    warning: "var(--color-warning)",
-    info: "var(--color-info)",
-    error: "var(--color-error)",
-    successBg: "var(--color-success-bg)",
-    warningBg: "var(--color-warning-bg)",
-    infoBg: "var(--color-info-bg)",
-    errorBg: "var(--color-error-bg)",
-    successBorder: "var(--color-success-border)",
-    warningBorder: "var(--color-warning-border)",
-    infoBorder: "var(--color-info-border)",
-    errorBorder: "var(--color-error-border)"
-  },
-  backgrounds: {
-    primary: "var(--bg-primary)",
-    white: "var(--bg-white)",
-    black: "var(--bg-black)",
-    gray: "var(--bg-gray)",
-    disabled: "var(--bg-disabled)",
-    success: "var(--bg-success)",
-    warning: "var(--bg-warning)",
-    info: "var(--bg-info)",
-    error: "var(--bg-error)"
-  },
-  spacing: {
-    2: "var(--spacing-2)",
-    4: "var(--spacing-4)",
-    6: "var(--spacing-6)",
-    8: "var(--spacing-8)",
-    10: "var(--spacing-10)",
-    12: "var(--spacing-12)",
-    14: "var(--spacing-14)",
-    16: "var(--spacing-16)",
-    20: "var(--spacing-20)",
-    24: "var(--spacing-24)",
-    32: "var(--spacing-32)",
-    44: "var(--spacing-44)",
-    56: "var(--spacing-56)",
-    96: "var(--spacing-96)"
-  },
-  radius: {
-    sm: "var(--radius-sm)",
-    md: "var(--radius-md)",
-    lg: "var(--radius-lg)",
-    full: "var(--radius-full)"
-  },
-  fontSize: {
-    12: "var(--font-size-12)",
-    14: "var(--font-size-14)",
-    16: "var(--font-size-16)",
-    18: "var(--font-size-18)",
-    24: "var(--font-size-24)"
-  },
-  fontWeight: {
-    normal: "var(--font-weight-normal)",
-    semibold: "var(--font-weight-semibold)",
-    bold: "var(--font-weight-bold)"
-  },
-  size: {
-    24: "var(--size-24)",
-    32: "var(--size-32)",
-    36: "var(--size-36)",
-    44: "var(--size-44)",
-    56: "var(--size-56)",
-    96: "var(--size-96)"
-  },
-  transition: {
-    fast: "var(--transition-fast)",
-    base: "var(--transition-base)",
-    slow: "var(--transition-slow)"
-  },
-  shadow: {
-    sm: "var(--shadow-sm)",
-    md: "var(--shadow-md)",
-    lg: "var(--shadow-lg)"
-  },
-  zIndex: {
-    base: "var(--z-base)",
-    10: "var(--z-10)",
-    20: "var(--z-20)",
-    30: "var(--z-30)",
-    40: "var(--z-40)",
-    header: "var(--z-header)",
-    dropdown: "var(--z-dropdown)",
-    modal: "var(--z-modal)"
-  }
-};
-var cssVars = {
-  // Colors
-  colorPrimary: "--color-primary",
-  colorWhite: "--color-white",
-  colorBlack: "--color-black",
-  colorGray: "--color-gray",
-  colorDisabled: "--color-disabled",
-  colorSuccess: "--color-success",
-  colorWarning: "--color-warning",
-  colorInfo: "--color-info",
-  colorError: "--color-error",
-  // Backgrounds
-  bgPrimary: "--bg-primary",
-  bgWhite: "--bg-white",
-  bgBlack: "--bg-black",
-  bgGray: "--bg-gray",
-  bgDisabled: "--bg-disabled",
-  bgSuccess: "--bg-success",
-  bgWarning: "--bg-warning",
-  bgInfo: "--bg-info",
-  bgError: "--bg-error",
-  // Spacing
-  spacing2: "--spacing-2",
-  spacing4: "--spacing-4",
-  spacing6: "--spacing-6",
-  spacing8: "--spacing-8",
-  spacing10: "--spacing-10",
-  spacing12: "--spacing-12",
-  spacing14: "--spacing-14",
-  spacing16: "--spacing-16",
-  spacing20: "--spacing-20",
-  spacing24: "--spacing-24",
-  spacing32: "--spacing-32",
-  spacing44: "--spacing-44",
-  spacing56: "--spacing-56",
-  spacing96: "--spacing-96",
-  // Radius
-  radiusSm: "--radius-sm",
-  radiusMd: "--radius-md",
-  radiusLg: "--radius-lg",
-  radiusFull: "--radius-full",
-  // Font sizes
-  fontSize12: "--font-size-12",
-  fontSize14: "--font-size-14",
-  fontSize16: "--font-size-16",
-  fontSize18: "--font-size-18",
-  fontSize24: "--font-size-24",
-  // Font weights
-  fontWeightNormal: "--font-weight-normal",
-  fontWeightSemibold: "--font-weight-semibold",
-  fontWeightBold: "--font-weight-bold",
-  // Sizes
-  size24: "--size-24",
-  size32: "--size-32",
-  size36: "--size-36",
-  size44: "--size-44",
-  size56: "--size-56",
-  size96: "--size-96",
-  // Transitions
-  transitionFast: "--transition-fast",
-  transitionBase: "--transition-base",
-  transitionSlow: "--transition-slow",
-  // Shadows
-  shadowSm: "--shadow-sm",
-  shadowMd: "--shadow-md",
-  shadowLg: "--shadow-lg",
-  // Z-index
-  zBase: "--z-base",
-  z10: "--z-10",
-  z20: "--z-20",
-  z30: "--z-30",
-  z40: "--z-40",
-  zHeader: "--z-header",
-  zDropdown: "--z-dropdown",
-  zModal: "--z-modal"
-};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Anchor,
@@ -542,9 +430,9 @@ var cssVars = {
   IconButton,
   InputImage,
   InputText,
+  Modal,
   ScrollView,
   Textarea,
   cn,
-  cssVars,
-  tokens
+  useFocusTrap
 });

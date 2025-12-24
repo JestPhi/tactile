@@ -11,6 +11,7 @@ export { default as ScrollView } from "./ScrollView";
 export { default as Anchor } from "./Anchor";
 export { default as Button } from "./Button";
 export { default as IconButton } from "./IconButton";
+export { default as Modal } from "./Modal";
 
 // Display Components
 export { default as Avatar } from "./Avatar";
@@ -23,6 +24,4 @@ export { default as Textarea } from "./Inputs/Textarea";
 
 // Utilities
 export { cn } from "./utils/classNames";
-
-// Design Tokens
-export { tokens, cssVars } from "./tokens";
+export { useFocusTrap } from "./utils/useFocusTrap";
