@@ -5,14 +5,14 @@ export default defineConfig({
   format: ['cjs', 'esm'],
   dts: true,
   clean: true,
-  external: ['react', 'react-dom', 'react-router-dom'],
+  external: ['react', 'react-dom', 'react-router-dom', 'react-feather'],
   loader: {
     '.css': 'copy',
   },
   async onSuccess() {
     // Copy CSS files to dist
-    const fs = require('fs');
-    const path = require('path');
+    const fs = await import('fs');
+    const path = await import('path');
     
     const copyRecursiveSync = (src, dest) => {
       const exists = fs.existsSync(src);

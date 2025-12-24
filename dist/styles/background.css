@@ -1,0 +1,39 @@
+.bg-none {
+  background: none;
+}
+
+.bg-black {
+  background-color: var(--bg-black);
+}
+
+.bg-white {
+  background-color: var(--bg-white);
+}
+
+.bg-gray {
+  background-color: var(--bg-gray);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-disabled {
+  background-color: var(--bg-disabled);
+}
+
+.bg-success {
+  background-color: var(--bg-success);
+}
+
+.bg-warning {
+  background-color: var(--bg-warning);
+}
+
+.bg-info {
+  background-color: var(--bg-info);
+}
+
+.bg-error {
+  background-color: var(--bg-error);
+}

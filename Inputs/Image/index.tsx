@@ -10,7 +10,8 @@ const getImage = (image: File | string) => {
     const blob = new Blob([image], { type: "image/jpeg" });
     return URL.createObjectURL(blob);
   }
-  return `${import.meta.env.VITE_STORJ_PUBLIC_URL}/${image}?wrap=0`;
+  // Return image path - consumers can configure the base URL in their app
+  return image;
 };
 
 interface InputImageProps {

@@ -7,9 +7,9 @@
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
+            "types": "./dist/index.d.ts",
             "import": "./dist/index.mjs",
-            "require": "./dist/index.js",
-            "types": "./dist/index.d.ts"
+            "require": "./dist/index.js"
         },
         "./styles": "./dist/styles/util.css"
     },
@@ -41,6 +41,7 @@
     },
     "dependencies": {
         "nanoid": "^5.1.6",
+        "react-feather": "^2.0.10",
         "react-router-dom": "^6.30.1"
     },
     "devDependencies": {
@@ -54,5 +55,12 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/yourusername/tactile"
-    }
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "bugs": {
+        "url": "https://github.com/yourusername/tactile/issues"
+    },
+    "homepage": "https://github.com/yourusername/tactile#readme"
 }

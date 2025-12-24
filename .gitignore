@@ -3,7 +3,7 @@ node_modules
 *.log
 
 # Build output
-dist
+# dist (commented out to commit build files to git)
 
 # IDE
 .vscode

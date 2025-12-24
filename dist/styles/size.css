@@ -1,0 +1,56 @@
+.h-auto {
+  height: auto;
+}
+.h-full {
+  height: 100%;
+}
+.h-24 {
+  height: var(--size-24);
+}
+.h-32 {
+  height: var(--size-32);
+}
+.h-36 {
+  height: var(--size-36);
+}
+
+.h-44 {
+  height: var(--size-44);
+}
+
+.h-56 {
+  height: var(--size-56);
+}
+
+.h-96 {
+  height: var(--size-96);
+}
+
+.w-24 {
+  width: var(--size-24);
+}
+
+.w-36 {
+  width: var(--size-36);
+}
+
+.w-44 {
+  width: var(--size-44);
+}
+
+.w-96 {
+  width: var(--size-96);
+}
+
+.min-w-44 {
+  min-width: var(--size-44);
+}
+.max-w-full {
+  max-width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.w-full {
+  width: 100%;
+}
