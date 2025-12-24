@@ -1,0 +1,28 @@
+/* Z-index utilities */
+.z-0 {
+  z-index: 0;
+}
+.z-base {
+  z-index: var(--z-base);
+}
+.z-10 {
+  z-index: var(--z-10);
+}
+.z-20 {
+  z-index: var(--z-20);
+}
+.z-30 {
+  z-index: var(--z-30);
+}
+.z-40 {
+  z-index: var(--z-40);
+}
+.z-header {
+  z-index: var(--z-header);
+}
+.z-dropdown {
+  z-index: var(--z-dropdown);
+}
+.z-modal {
+  z-index: var(--z-modal);
+}

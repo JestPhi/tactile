@@ -1,0 +1,41 @@
+@import "reset.css";
+@import "variables.css";
+@import "background.css";
+@import "flex.css";
+@import "font.css";
+@import "margin.css";
+@import "padding.css";
+@import "color.css";
+@import "theme.css";
+@import "border.css";
+@import "size.css";
+@import "layout.css";
+
+.object-fit {
+  object-fit: cover;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+.opacity-100 {
+  opacity: 1;
+}

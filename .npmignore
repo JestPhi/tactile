@@ -1,0 +1,23 @@
+# Source files
+*.md
+!README.md
+!COMPONENT_TEMPLATE.md
+
+# Config
+tsconfig.json
+.gitignore
+.npmignore
+
+# Development
+*.log
+coverage
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

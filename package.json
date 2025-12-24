@@ -1,0 +1,58 @@
+{
+    "name": "@stella/tactile",
+    "version": "1.0.0",
+    "description": "A lightweight, touch-optimized React design system with utility-first styling",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./styles": "./dist/styles/util.css"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "COMPONENT_TEMPLATE.md"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "type-check": "tsc --noEmit",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "react",
+        "design-system",
+        "ui-components",
+        "touch-optimized",
+        "utility-css",
+        "accessible",
+        "mobile-first"
+    ],
+    "author": "",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": ">=18.0.0",
+        "react-dom": ">=18.0.0"
+    },
+    "dependencies": {
+        "nanoid": "^5.1.6",
+        "react-router-dom": "^6.30.1"
+    },
+    "devDependencies": {
+        "@types/react": "^19.1.5",
+        "@types/react-dom": "^19.1.5",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "tsup": "^8.0.0",
+        "typescript": "^5.8.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/tactile"
+    }
+}

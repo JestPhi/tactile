@@ -1,0 +1,137 @@
+:root {
+  /* Colors */
+  --color-primary: rgb(1, 127, 230);
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #666666;
+  --color-disabled: #666666;
+
+  /* Semantic Colors */
+  --color-success: #34c759;
+  --color-warning: #ff9500;
+  --color-info: #5ac8fa;
+  --color-error: #ff3b30;
+
+  /* State Background Colors */
+  --color-success-bg: #e8f9f0;
+  --color-warning-bg: #fff4e5;
+  --color-info-bg: #e5f6fd;
+  --color-error-bg: #ffebee;
+
+  /* State Border Colors */
+  --color-success-border: #a7ead0;
+  --color-warning-border: #ffd599;
+  --color-info-border: #b3e5fc;
+  --color-error-border: #ffcdd2;
+
+  /* Background Colors */
+  --bg-primary: rgb(1, 127, 230);
+  --bg-white: #ffffff;
+  --bg-black: #000000;
+  --bg-gray: #f5f5f5;
+  --bg-disabled: #e0e0e0;
+  --bg-success: #e8f9f0;
+  --bg-warning: #fff4e5;
+  --bg-info: #e5f6fd;
+  --bg-error: #ffebee;
+
+  /* Spacing */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-14: 14px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-44: 44px;
+  --spacing-56: 56px;
+  --spacing-96: 96px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 16px;
+  --radius-lg: 32px;
+  --radius-full: 50%;
+
+  /* Typography */
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-24: 24px;
+
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Sizes */
+  --size-24: 24px;
+  --size-32: 32px;
+  --size-36: 36px;
+  --size-44: 44px;
+  --size-56: 56px;
+  --size-96: 96px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Z-index */
+  --z-base: 1;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-header: 50;
+  --z-dropdown: 100;
+  --z-modal: 1000;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Colors */
+    --color-white: #000000;
+    --color-black: #ffffff;
+    --color-gray: #999999;
+    --color-disabled: #999999;
+
+    /* Semantic Colors (adjusted for dark mode) */
+    --color-success: #30d158;
+    --color-warning: #ff9f0a;
+    --color-info: #64d2ff;
+    --color-error: #ff453a;
+
+    /* State Background Colors */
+    --color-success-bg: #0d3021;
+    --color-warning-bg: #2e2204;
+    --color-info-bg: #0a2e3f;
+    --color-error-bg: #3d0a08;
+
+    /* State Border Colors */
+    --color-success-border: #1b5a36;
+    --color-warning-border: #5c3e0a;
+    --color-info-border: #1a5470;
+    --color-error-border: #6e1a16;
+
+    /* Background Colors */
+    --bg-white: #000000;
+    --bg-black: #ffffff;
+    --bg-gray: #1c1c1e;
+    --bg-disabled: #2c2c2e;
+    --bg-success: #0d3021;
+    --bg-warning: #2e2204;
+    --bg-info: #0a2e3f;
+    --bg-error: #3d0a08;
+  }
+}

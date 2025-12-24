@@ -1,0 +1,23 @@
+.textarea {
+  background: whitesmoke;
+  border: none;
+  border-radius: 16px;
+  padding: 8px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  resize: none;
+  line-height: 1.5em;
+}
+
+:has(> .editMode) {
+  padding: 20px;
+}
+
+.editMode {
+  border: 1px #ccc solid;
+  border-radius: 16px;
+}
