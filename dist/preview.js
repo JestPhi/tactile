@@ -27,9 +27,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// index.ts
-var index_exports = {};
-__export(index_exports, {
+// preview.ts
+var preview_exports = {};
+__export(preview_exports, {
   Anchor: () => Anchor_default,
   Avatar: () => Avatar_default,
   Bar: () => Bar_default,
@@ -46,7 +46,7 @@ __export(index_exports, {
   cn: () => cn,
   useFocusTrap: () => useFocusTrap
 });
-module.exports = __toCommonJS(index_exports);
+module.exports = __toCommonJS(preview_exports);
 
 // utils/classNames.ts
 var cn = (...classes) => {

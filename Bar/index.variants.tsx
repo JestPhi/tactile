@@ -1,3 +1,4 @@
+import "../styles/util.css";
 import Bar from "./index";
 
 export const variants = {

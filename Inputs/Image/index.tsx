@@ -20,6 +20,7 @@ interface InputImageProps {
   removePlaceholder?: string | null;
   selectPlaceholder?: string | null;
   value?: File | string | null;
+  variant?: "default" | "square" | "avatar" | "small" | "large";
 }
 
 const InputImage = ({
@@ -28,6 +29,7 @@ const InputImage = ({
   value = null,
   removePlaceholder,
   selectPlaceholder = null,
+  variant = "default",
 }: InputImageProps) => {
   const didMount = useRef(false);
   const [imageFileState, setImageFileState] = useState<File | string | null>(
@@ -48,7 +50,14 @@ const InputImage = ({
   }, [imageFileState, onChange]);
 
   return (
-    <div className={[style.inputImage, "inputImage", className].join(" ")}>
+    <div
+      className={[
+        style.inputImage,
+        style[variant],
+        "inputImage",
+        className,
+      ].join(" ")}
+    >
       {imageFileState && (
         <img
           className={style.img}
@@ -73,7 +82,7 @@ const InputImage = ({
       )}
       {!imageFileState && (
         <button
-          className="w-full h-full border-none bg-none flex justify-center items-center"
+          className="align-items w-full h-full border-none bg-none flex justify-center items-center"
           onClick={() => inputRef.current?.click()}
         >
           <ImageIcon color="#222" height={24} width={24} />

@@ -1,24 +1,27 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ['index.ts'],
-  format: ['cjs', 'esm'],
+  entry: {
+    index: "index.ts",
+    preview: "preview.ts", // Entry point that includes CSS for previews
+  },
+  format: ["cjs", "esm"],
   dts: true,
   clean: true,
-  external: ['react', 'react-dom', 'react-router-dom', 'react-feather'],
+  external: ["react", "react-dom", "react-router-dom", "react-feather"],
   loader: {
-    '.css': 'copy',
+    ".css": "css", // Bundle CSS instead of just copying
   },
   async onSuccess() {
     // Copy CSS files to dist
-    const fs = await import('fs');
-    const path = await import('path');
-    
+    const fs = await import("fs");
+    const path = await import("path");
+
     const copyRecursiveSync = (src, dest) => {
       const exists = fs.existsSync(src);
       const stats = exists && fs.statSync(src);
       const isDirectory = exists && stats.isDirectory();
-      
+
       if (isDirectory) {
         fs.mkdirSync(dest, { recursive: true });
         fs.readdirSync(src).forEach((childItemName) => {
@@ -31,7 +34,7 @@ export default defineConfig({
         fs.copyFileSync(src, dest);
       }
     };
-    
-    copyRecursiveSync('./styles', './dist/styles');
+
+    copyRecursiveSync("./styles", "./dist/styles");
   },
 });

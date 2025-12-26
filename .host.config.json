@@ -1,0 +1,8 @@
+{
+    "name": "@stella/tactile",
+    "version": "1.0.0",
+    "previewConfig": {
+        "variantsEntry": "./variants.ts",
+        "componentsGlob": "**/index.variants.tsx"
+    }
+}

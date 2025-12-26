@@ -2,9 +2,15 @@
 
 All variables are automatically available after importing `@stella/tactile/styles`.
 
-## Colors
+**Note:** Color variables must be defined by your application. The design system does not provide default colors - this allows full theming control.
+
+## Required Color Variables
+
+Your app must define these color variables for the design system to work:
 
 ```css
+/* In your app's CSS */
+:root {
 /* Brand & Base Colors */
 --color-primary: rgb(1, 127, 230)
 --color-white: #ffffff (dark mode: #000000)
@@ -154,6 +160,32 @@ All variables are automatically available after importing `@stella/tactile/style
 }
 ```
 
-## Dark Mode
+## Custom Theming
 
-All color and background variables automatically adapt to dark mode via `prefers-color-scheme: dark`.
+The design system provides CSS variables that consuming apps can override for theming:
+
+```css
+/* In your app's CSS */
+:root {
+  --color-primary: #your-brand-color;
+  --bg-primary: #your-brand-color;
+}
+
+/* Dark mode example */
+[data-theme="dark"] {
+  --color-white: #000000;
+  --color-black: #ffffff;
+  --bg-white: #1a1a1a;
+  --bg-gray: #2a2a2a;
+}
+```
+
+You can also use `prefers-color-scheme` for automatic dark mode:
+
+```css
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override variables for dark mode */
+  }
+}
+```

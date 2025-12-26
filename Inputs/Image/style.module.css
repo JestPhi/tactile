@@ -28,6 +28,32 @@
 .buttonAddImage svg {
   margin-bottom: 4px;
 }
+
+/* Variants */
+.default {
+  aspect-ratio: 16 / 9;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
+}
+
+.avatar {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.small {
+  aspect-ratio: 1 / 1;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.large {
+  aspect-ratio: 16 / 9;
+  min-height: 400px;
+}
 .bar {
   align-items: center;
   background: none;

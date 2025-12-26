@@ -1,6 +1,6 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as React from 'react';
-import React__default, { ReactNode, ComponentProps, ButtonHTMLAttributes, InputHTMLAttributes } from 'react';
+import React__default, { ReactNode, ComponentProps, ButtonHTMLAttributes, SelectHTMLAttributes, InputHTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 
 interface BarProps {
@@ -42,6 +42,14 @@ interface ModalProps {
 }
 declare const Modal: ({ visible, onClose, children, height, }: ModalProps) => react_jsx_runtime.JSX.Element | null;
 
+interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
+    children?: ReactNode;
+    className?: string;
+    error?: boolean;
+    placeholder?: string;
+}
+declare const Dropdown: ({ children, className, error, placeholder, disabled, ...rest }: DropdownProps) => react_jsx_runtime.JSX.Element;
+
 declare const SIZE_MAP: {
     readonly SM: "h-36 w-36";
     readonly LG: "h-96 w-96";
@@ -73,8 +81,9 @@ interface InputImageProps {
     removePlaceholder?: string | null;
     selectPlaceholder?: string | null;
     value?: File | string | null;
+    variant?: "default" | "square" | "avatar" | "small" | "large";
 }
-declare const _default: React__default.MemoExoticComponent<({ className, onChange, value, removePlaceholder, selectPlaceholder, }: InputImageProps) => react_jsx_runtime.JSX.Element>;
+declare const _default: React__default.MemoExoticComponent<({ className, onChange, value, removePlaceholder, selectPlaceholder, variant, }: InputImageProps) => react_jsx_runtime.JSX.Element>;
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     required?: boolean;
@@ -109,4 +118,19 @@ declare const cn: (...classes: (string | false | null | undefined)[]) => string;
  */
 declare function useFocusTrap<T extends HTMLElement>(isActive: boolean): React.RefObject<T | null>;
 
-export { Anchor, Avatar, Bar, Button, FormField, IconButton, _default as InputImage, InputText, Modal, ScrollView, Textarea, cn, useFocusTrap };
+interface PreviewWrapperProps {
+    children: ReactNode;
+    className?: string;
+}
+/**
+ * PreviewWrapper - Wrapper component for preview extensions
+ * Imports util.css globally so all child components have access to utility classes
+ *
+ * Usage in preview extensions:
+ * <PreviewWrapper>
+ *   <YourComponent />
+ * </PreviewWrapper>
+ */
+declare const PreviewWrapper: ({ children, className, }: PreviewWrapperProps) => react_jsx_runtime.JSX.Element;
+
+export { Anchor, Avatar, Bar, Button, Dropdown, FormField, IconButton, _default as InputImage, InputText, Modal, PreviewWrapper, ScrollView, Textarea, cn, useFocusTrap };

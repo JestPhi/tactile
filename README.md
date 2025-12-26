@@ -7,7 +7,7 @@ A lightweight, touch-optimized React design system with utility-first styling. B
 - 🎯 **Touch-Optimized**: 48px minimum touch targets throughout
 - ♿ **Accessible**: WCAG-compliant components with ARIA support
 - 🎨 **Utility-First**: Comprehensive utility class system
-- 🌓 **Dark Mode**: Automatic dark mode support via `prefers-color-scheme`
+- � **Themeable**: CSS variables for easy customization
 - 📱 **Mobile-First**: Responsive and optimized for mobile devices
 - 🔧 **TypeScript**: Fully typed components and APIs
 - 🪶 **Lightweight**: Minimal dependencies, maximum performance
@@ -22,14 +22,59 @@ yarn add @stella/tactile
 pnpm add @stella/tactile
 ```
 
-## Usage
+## Setup
 
-### Import Styles
+### 1. Import Styles
 
 Import the utility styles in your app's entry point:
 
 ```tsx
 import "@stella/tactile/styles";
+```
+
+### 2. Define Color Theme
+
+**Important:** You must define color variables for the design system to work. Create a theme file:
+
+```css
+/* theme.css or in your global styles */
+:root {
+  /* Colors */
+  --color-primary: #your-primary-color;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #666666;
+  --color-disabled: #999999;
+
+  /* Semantic Colors */
+  --color-success: #34c759;
+  --color-warning: #ff9500;
+  --color-info: #5ac8fa;
+  --color-error: #ff3b30;
+
+  /* State Background Colors */
+  --color-success-bg: #e8f9f0;
+  --color-warning-bg: #fff4e5;
+  --color-info-bg: #e5f6fd;
+  --color-error-bg: #ffebee;
+
+  /* State Border Colors */
+  --color-success-border: #a7ead0;
+  --color-warning-border: #ffd599;
+  --color-info-border: #b3e5fc;
+  --color-error-border: #ffcdd2;
+
+  /* Background Colors */
+  --bg-primary: #your-primary-color;
+  --bg-white: #ffffff;
+  --bg-black: #000000;
+  --bg-gray: #f5f5f5;
+  --bg-disabled: #e0e0e0;
+  --bg-success: #e8f9f0;
+  --bg-warning: #fff4e5;
+  --bg-info: #e5f6fd;
+  --bg-error: #ffebee;
+}
 ```
 
 ### Use Components

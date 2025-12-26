@@ -1,3 +1,4 @@
+import "../styles/util.css";
 import Button from "./index";
 
 export const variants = {

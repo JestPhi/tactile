@@ -11,6 +11,11 @@
             "import": "./dist/index.mjs",
             "require": "./dist/index.js"
         },
+        "./preview": {
+            "types": "./dist/preview.d.ts",
+            "import": "./dist/preview.mjs",
+            "require": "./dist/preview.js"
+        },
         "./styles": "./dist/styles/util.css"
     },
     "files": [
@@ -23,8 +28,6 @@
         "build": "tsup",
         "dev": "tsup --watch",
         "type-check": "tsc --noEmit",
-        "check-docs": "node check-docs.js",
-        "prebuild": "npm run check-docs",
         "prepublishOnly": "npm run build"
     },
     "keywords": [

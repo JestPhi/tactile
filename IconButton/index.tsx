@@ -14,8 +14,8 @@ const IconButton = ({
     "flex",
     "items-center",
     "justify-center",
-    "min-h-44",
-    "min-w-44",
+    "min-h-48",
+    "min-w-48",
     "bg-none",
     "border-none",
     "p-0",
@@ -27,7 +27,12 @@ const IconButton = ({
     .join(" ");
 
   return (
-    <button className={styles} disabled={disabled} {...rest}>
+    <button
+      className={styles}
+      disabled={disabled}
+      {...rest}
+      data-component="IconButton"
+    >
       {children}
     </button>
   );

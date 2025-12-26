@@ -41,7 +41,9 @@
 .w-96 {
   width: var(--size-96);
 }
-
+.min-h-48 {
+  min-height: var(--size-48);
+}
 .min-w-48 {
   min-width: var(--size-48);
 }
@@ -53,4 +55,10 @@
 }
 .w-full {
   width: 100%;
+}
+.w-fit {
+  width: fit-content;
+}
+.h-fit {
+  height: fit-content;
 }

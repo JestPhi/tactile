@@ -41,6 +41,7 @@ button {
   border: none;
   cursor: pointer;
   padding: 0;
+  color: var(--color-black);
 }
 
 p,
@@ -56,6 +57,10 @@ h6 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:visited {
+  color: var(--color-black);
 }
 
 ul,
