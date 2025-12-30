@@ -9,9 +9,7 @@ export default defineConfig({
   dts: true,
   clean: true,
   external: ["react", "react-dom", "react-router-dom", "react-feather"],
-  loader: {
-    ".css": "css", // Bundle CSS instead of just copying
-  },
+  inject: ["./styles/variables.css"],
   async onSuccess() {
     // Copy CSS files to dist
     const fs = await import("fs");
