@@ -6,7 +6,11 @@ interface ScrollViewProps {
 }
 
 const ScrollView = ({ children }: ScrollViewProps) => {
-  return <div className={styles.scrollView}>{children}</div>;
+  return (
+    <div className={styles.scrollView} data-component="ScrollView">
+      {children}
+    </div>
+  );
 };
 
 export default ScrollView;
