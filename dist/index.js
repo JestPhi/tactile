@@ -73,7 +73,10 @@ var style_default = {};
 // ScrollView/index.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
 var ScrollView = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: style_default.scrollView, "data-component": "ScrollView", children });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: style_default.scrollView, "data-component": "ScrollView", children: [
+    "Test",
+    children
+  ] });
 };
 var ScrollView_default = ScrollView;
 

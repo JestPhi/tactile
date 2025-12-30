@@ -21,18 +21,21 @@ var Bar_default = Bar;
 var style_default = {};
 
 // ScrollView/index.tsx
-import { jsx as jsx2 } from "react/jsx-runtime";
+import { jsxs } from "react/jsx-runtime";
 var ScrollView = ({ children }) => {
-  return /* @__PURE__ */ jsx2("div", { className: style_default.scrollView, "data-component": "ScrollView", children });
+  return /* @__PURE__ */ jsxs("div", { className: style_default.scrollView, "data-component": "ScrollView", children: [
+    "Test",
+    children
+  ] });
 };
 var ScrollView_default = ScrollView;
 
 // Anchor/index.tsx
 import { Link } from "react-router-dom";
-import { jsx as jsx3 } from "react/jsx-runtime";
+import { jsx as jsx2 } from "react/jsx-runtime";
 var Anchor = ({ children, className = "", ...rest }) => {
   const baseClasses = "flex items-center justify-center bg-none border-none cursor-pointer h-44 min-w-44 p-0";
-  return /* @__PURE__ */ jsx3(Link, { className: [baseClasses, className].join(" "), ...rest, children });
+  return /* @__PURE__ */ jsx2(Link, { className: [baseClasses, className].join(" "), ...rest, children });
 };
 var Anchor_default = Anchor;
 
@@ -40,7 +43,7 @@ var Anchor_default = Anchor;
 var style_default2 = {};
 
 // Button/index.tsx
-import { jsx as jsx4, jsxs } from "react/jsx-runtime";
+import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
 var Button = ({
   children,
   className = "",
@@ -54,7 +57,7 @@ var Button = ({
   const touchArea = "flex items-center justify-center min-h-44 min-w-44";
   const buttonStyles = "flex items-center justify-center border-none rounded-32 h-32 pl-16 pr-16 pt-8 pb-8";
   const colorStyles = isDisabled ? "bg-disabled text-disabled opacity-60 cursor-not-allowed" : variant === "secondary" ? "bg-white text-black border border-black cursor-pointer" : "bg-primary text-white cursor-pointer";
-  return /* @__PURE__ */ jsx4(
+  return /* @__PURE__ */ jsx3(
     "button",
     {
       className: cn(touchArea, className),
@@ -62,9 +65,9 @@ var Button = ({
       "data-component": "Button",
       "data-variant": variant,
       ...rest,
-      children: /* @__PURE__ */ jsxs("span", { className: cn(buttonStyles, colorStyles), children: [
-        isLoading && /* @__PURE__ */ jsx4("span", { className: style_default2.spinner, "aria-hidden": "true" }),
-        /* @__PURE__ */ jsx4("span", { children: isLoading ? loadingText : children })
+      children: /* @__PURE__ */ jsxs2("span", { className: cn(buttonStyles, colorStyles), children: [
+        isLoading && /* @__PURE__ */ jsx3("span", { className: style_default2.spinner, "aria-hidden": "true" }),
+        /* @__PURE__ */ jsx3("span", { children: isLoading ? loadingText : children })
       ] })
     }
   );
@@ -72,7 +75,7 @@ var Button = ({
 var Button_default = Button;
 
 // IconButton/index.tsx
-import { jsx as jsx5 } from "react/jsx-runtime";
+import { jsx as jsx4 } from "react/jsx-runtime";
 var IconButton = ({
   children,
   className = "",
@@ -92,7 +95,7 @@ var IconButton = ({
     disabled ? "opacity-60 cursor-not-allowed" : "",
     className
   ].filter(Boolean).join(" ");
-  return /* @__PURE__ */ jsx5(
+  return /* @__PURE__ */ jsx4(
     "button",
     {
       className: styles,
@@ -144,7 +147,7 @@ function useFocusTrap(isActive) {
 var style_default3 = {};
 
 // Modal/index.tsx
-import { jsx as jsx6, jsxs as jsxs2 } from "react/jsx-runtime";
+import { jsx as jsx5, jsxs as jsxs3 } from "react/jsx-runtime";
 var Modal = ({
   visible,
   onClose,
@@ -160,15 +163,15 @@ var Modal = ({
   if (!visible) {
     return null;
   }
-  return /* @__PURE__ */ jsxs2("div", { className: style_default3.modal, ref: modalRef, children: [
-    /* @__PURE__ */ jsx6("div", { className: style_default3.backdrop, onClick: handleClose }),
-    /* @__PURE__ */ jsx6("div", { className: style_default3.content, style: { height }, children })
+  return /* @__PURE__ */ jsxs3("div", { className: style_default3.modal, ref: modalRef, children: [
+    /* @__PURE__ */ jsx5("div", { className: style_default3.backdrop, onClick: handleClose }),
+    /* @__PURE__ */ jsx5("div", { className: style_default3.content, style: { height }, children })
   ] });
 };
 var Modal_default = Modal;
 
 // Dropdown/index.tsx
-import { jsx as jsx7, jsxs as jsxs3 } from "react/jsx-runtime";
+import { jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
 var Dropdown = ({
   children,
   className,
@@ -177,7 +180,7 @@ var Dropdown = ({
   disabled,
   ...rest
 }) => {
-  return /* @__PURE__ */ jsxs3(
+  return /* @__PURE__ */ jsxs4(
     "select",
     {
       "data-component": "Dropdown",
@@ -197,7 +200,7 @@ var Dropdown = ({
       "aria-invalid": error,
       ...rest,
       children: [
-        placeholder && /* @__PURE__ */ jsx7("option", { value: "", disabled: true, children: placeholder }),
+        placeholder && /* @__PURE__ */ jsx6("option", { value: "", disabled: true, children: placeholder }),
         children
       ]
     }
@@ -206,7 +209,7 @@ var Dropdown = ({
 var Dropdown_default = Dropdown;
 
 // Avatar/index.tsx
-import { jsx as jsx8 } from "react/jsx-runtime";
+import { jsx as jsx7 } from "react/jsx-runtime";
 var SIZE_MAP = {
   SM: "h-36 w-36",
   LG: "h-96 w-96"
@@ -219,7 +222,7 @@ var Avatar = ({
   src,
   size = "SM"
 }) => {
-  return src ? /* @__PURE__ */ jsx8(
+  return src ? /* @__PURE__ */ jsx7(
     "img",
     {
       className: [
@@ -232,7 +235,7 @@ var Avatar = ({
       alt: "User avatar",
       "data-component": "Avatar"
     }
-  ) : /* @__PURE__ */ jsx8(
+  ) : /* @__PURE__ */ jsx7(
     "span",
     {
       className: [
@@ -249,7 +252,7 @@ var Avatar_default = Avatar;
 
 // Inputs/FormField/index.tsx
 import { nanoid } from "nanoid";
-import { jsx as jsx9, jsxs as jsxs4 } from "react/jsx-runtime";
+import { jsx as jsx8, jsxs as jsxs5 } from "react/jsx-runtime";
 var FormField = ({
   id,
   label,
@@ -263,17 +266,17 @@ var FormField = ({
   const errorId = error ? `${inputId}-error` : void 0;
   const helperId = helperText ? `${inputId}-helper` : void 0;
   const describedBy = [errorId, helperId].filter(Boolean).join(" ");
-  return /* @__PURE__ */ jsxs4(
+  return /* @__PURE__ */ jsxs5(
     "div",
     {
       className: ["flex flex-col gap-4", className].filter(Boolean).join(" "),
       "data-component": "FormField",
       children: [
-        label && /* @__PURE__ */ jsxs4("label", { htmlFor: inputId, className: "font-semibold text-sm mb-6", children: [
+        label && /* @__PURE__ */ jsxs5("label", { htmlFor: inputId, className: "font-semibold text-sm mb-6", children: [
           label,
-          required && /* @__PURE__ */ jsx9("span", { className: "color-error ml-4", children: "*" })
+          required && /* @__PURE__ */ jsx8("span", { className: "color-error ml-4", children: "*" })
         ] }),
-        /* @__PURE__ */ jsx9(
+        /* @__PURE__ */ jsx8(
           "div",
           {
             className: "h-full",
@@ -282,8 +285,8 @@ var FormField = ({
             children
           }
         ),
-        error && /* @__PURE__ */ jsx9("span", { id: errorId, className: "text-xs color-error mt-4", children: error }),
-        helperText && !error && /* @__PURE__ */ jsx9("span", { id: helperId, className: "text-xs color-gray-500 mt-4", children: helperText })
+        error && /* @__PURE__ */ jsx8("span", { id: errorId, className: "text-xs color-error mt-4", children: error }),
+        helperText && !error && /* @__PURE__ */ jsx8("span", { id: helperId, className: "text-xs color-gray-500 mt-4", children: helperText })
       ]
     }
   );
@@ -298,7 +301,7 @@ import { Image as ImageIcon, Trash2 } from "react-feather";
 var style_default4 = {};
 
 // Inputs/Image/index.tsx
-import { jsx as jsx10, jsxs as jsxs5 } from "react/jsx-runtime";
+import { jsx as jsx9, jsxs as jsxs6 } from "react/jsx-runtime";
 var getImage = (image) => {
   if (typeof image === "object") {
     const blob = new Blob([image], { type: "image/jpeg" });
@@ -329,7 +332,7 @@ var InputImage = ({
     }
     didMount.current = true;
   }, [imageFileState, onChange]);
-  return /* @__PURE__ */ jsxs5(
+  return /* @__PURE__ */ jsxs6(
     "div",
     {
       className: [
@@ -339,7 +342,7 @@ var InputImage = ({
         className
       ].join(" "),
       children: [
-        imageFileState && /* @__PURE__ */ jsx10(
+        imageFileState && /* @__PURE__ */ jsx9(
           "img",
           {
             className: style_default4.img,
@@ -347,7 +350,7 @@ var InputImage = ({
             alt: "Selected image"
           }
         ),
-        imageFileState && /* @__PURE__ */ jsx10(Bar_default, { className: style_default4.bar, children: removePlaceholder && /* @__PURE__ */ jsxs5(
+        imageFileState && /* @__PURE__ */ jsx9(Bar_default, { className: style_default4.bar, children: removePlaceholder && /* @__PURE__ */ jsxs6(
           Button_default,
           {
             variant: "secondary",
@@ -356,22 +359,22 @@ var InputImage = ({
             },
             children: [
               removePlaceholder,
-              /* @__PURE__ */ jsx10(Trash2, { size: 18, className: "ml6" })
+              /* @__PURE__ */ jsx9(Trash2, { size: 18, className: "ml6" })
             ]
           }
         ) }),
-        !imageFileState && /* @__PURE__ */ jsxs5(
+        !imageFileState && /* @__PURE__ */ jsxs6(
           "button",
           {
             className: "align-items w-full h-full border-none bg-none flex justify-center items-center",
             onClick: () => inputRef.current?.click(),
             children: [
-              /* @__PURE__ */ jsx10(ImageIcon, { color: "#222", height: 24, width: 24 }),
-              selectPlaceholder && /* @__PURE__ */ jsx10("span", { className: "m-8", children: selectPlaceholder })
+              /* @__PURE__ */ jsx9(ImageIcon, { color: "#222", height: 24, width: 24 }),
+              selectPlaceholder && /* @__PURE__ */ jsx9("span", { className: "m-8", children: selectPlaceholder })
             ]
           }
         ),
-        /* @__PURE__ */ jsx10(
+        /* @__PURE__ */ jsx9(
           "input",
           {
             className: style_default4.input,
@@ -399,11 +402,11 @@ var Image_default = React.memo(InputImage);
 
 // Inputs/Text/index.tsx
 import { nanoid as nanoid2 } from "nanoid";
-import { jsx as jsx11 } from "react/jsx-runtime";
+import { jsx as jsx10 } from "react/jsx-runtime";
 var InputText = ({ id, required, className, ...rest }) => {
   const inputId = id || `input-${nanoid2(9)}`;
   const baseClass = "border-b box-sizing-border-box text-base h-44 outline-none mb-8 w-full pl-6";
-  return /* @__PURE__ */ jsx11(
+  return /* @__PURE__ */ jsx10(
     "input",
     {
       id: inputId,
@@ -422,10 +425,10 @@ import React2 from "react";
 var style_default5 = {};
 
 // Inputs/Textarea/index.tsx
-import { jsx as jsx12 } from "react/jsx-runtime";
+import { jsx as jsx11 } from "react/jsx-runtime";
 var Textarea = React2.forwardRef(
   ({ className, isEditMode, ...rest }, ref) => {
-    return /* @__PURE__ */ jsx12(
+    return /* @__PURE__ */ jsx11(
       "textarea",
       {
         ref,
@@ -443,12 +446,12 @@ Textarea.displayName = "Textarea";
 var Textarea_default = Textarea;
 
 // PreviewWrapper.tsx
-import { jsx as jsx13 } from "react/jsx-runtime";
+import { jsx as jsx12 } from "react/jsx-runtime";
 var PreviewWrapper = ({
   children,
   className = ""
 }) => {
-  return /* @__PURE__ */ jsx13("div", { className: `preview-wrapper ${className}`, children });
+  return /* @__PURE__ */ jsx12("div", { className: `preview-wrapper ${className}`, children });
 };
 var PreviewWrapper_default = PreviewWrapper;
 
