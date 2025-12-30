@@ -16,7 +16,8 @@
             "import": "./dist/preview.mjs",
             "require": "./dist/preview.js"
         },
-        "./styles": "./dist/styles/util.css"
+        "./styles": "./dist/styles/util.css",
+        "./tactile.css": "./dist/tactile.css"
     },
     "files": [
         "dist",
