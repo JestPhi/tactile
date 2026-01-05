@@ -57,6 +57,7 @@ const InputImage = ({
         "inputImage",
         className,
       ].join(" ")}
+      data-component="Image"
     >
       {imageFileState && (
         <img

@@ -28,7 +28,7 @@ const Modal = ({
   }
 
   return (
-    <div className={styles.modal} ref={modalRef}>
+    <div className={styles.modal} ref={modalRef} data-component="Modal">
       <div className={styles.backdrop} onClick={handleClose} />
       <div className={styles.content} style={{ height }}>
         {children}

@@ -17,6 +17,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           .filter(Boolean)
           .join(" ")}
         {...rest}
+        data-component="InputTextarea"
       />
     );
   }

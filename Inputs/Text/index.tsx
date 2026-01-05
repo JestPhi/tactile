@@ -17,6 +17,7 @@ const InputText = ({ id, required, className, ...rest }: InputProps) => {
       id={inputId}
       type="text"
       className={[baseClass, className].filter(Boolean).join(" ")}
+      data-component="InputText"
       {...rest}
     />
   );

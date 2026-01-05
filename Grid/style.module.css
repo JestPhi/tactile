@@ -1,0 +1,12 @@
+:root {
+  --background: green;
+  --active: blue;
+}
+
+.node {
+  background: var(--background);
+}
+
+.active {
+  background: var(--active);
+}

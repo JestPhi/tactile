@@ -1,0 +1,15 @@
+.grid {
+  display: grid;
+}
+
+.row-gap-4 {
+  row-gap: 4px;
+}
+
+.row-columns-repeat {
+  grid-template-columns: repeat(80, 48px);
+}
+
+.column-gap-4 {
+  column-gap: 4px;
+}
