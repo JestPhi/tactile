@@ -7,15 +7,8 @@ type AnchorProps = {
 } & Omit<ComponentProps<typeof Link>, "className">;
 
 const Anchor = ({ children, className = "", ...rest }: AnchorProps) => {
-  const baseClasses =
-    "flex items-center justify-center bg-none border-none cursor-pointer h-44 min-w-44 p-0";
-
   return (
-    <Link
-      className={[baseClasses, className].join(" ")}
-      {...rest}
-      data-component="Anchor"
-    >
+    <Link className={[className].join(" ")} {...rest} data-component="Anchor">
       {children}
     </Link>
   );
